@@ -14,6 +14,9 @@ produces a `commons-pool.jar` that eliminates issues with class loader variable 
 The whole purpose of this project to enable the Web Curator Tool (https://github.com/DIA-NZ/webcurator) to work with the Heritrix 1
 agent.
 
+The version of heritrix 1.14 that works with this version of commons-pool can be found at
+https://github.com/WebCuratorTool/heritrix-1-14-adjust.
+
 ## Warning
 
 These changes only work if the dependencies have not been superseded by a more recent version. For Web Curator Tool it means that
