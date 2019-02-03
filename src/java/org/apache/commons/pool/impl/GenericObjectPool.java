@@ -125,6 +125,7 @@ import org.apache.commons.pool.impl.GenericKeyedObjectPool.ObjectTimestampPair;
  * @author Dirk Verbeeck
  * @version $Revision: 390563 $ $Date: 2006-03-31 20:28:14 -0500 (Fri, 31 Mar 2006) $
  */
+@SuppressWarnings("unchecked")
 public class GenericObjectPool extends BaseObjectPool implements ObjectPool {
 
     //--- public constants -------------------------------------------
@@ -1163,7 +1164,7 @@ public class GenericObjectPool extends BaseObjectPool implements ObjectPool {
      * @see #setMaxActive
      * @see #getMaxActive
      */
-    private int _maxActive = DEFAULT_MAX_ACTIVE;
+    protected int _maxActive = DEFAULT_MAX_ACTIVE;
 
     /**
      * The maximum amount of time (in millis) the
@@ -1181,7 +1182,7 @@ public class GenericObjectPool extends BaseObjectPool implements ObjectPool {
      * @see #setWhenExhaustedAction
      * @see #getWhenExhaustedAction
      */
-    private long _maxWait = DEFAULT_MAX_WAIT;
+    protected long _maxWait = DEFAULT_MAX_WAIT;
 
     /**
      * The action to take when the {@link #borrowObject} method
@@ -1195,7 +1196,7 @@ public class GenericObjectPool extends BaseObjectPool implements ObjectPool {
      * @see #setWhenExhaustedAction
      * @see #getWhenExhaustedAction
      */
-    private byte _whenExhaustedAction = DEFAULT_WHEN_EXHAUSTED_ACTION;
+    protected byte _whenExhaustedAction = DEFAULT_WHEN_EXHAUSTED_ACTION;
 
     /**
      * When <tt>true</tt>, objects will be
@@ -1208,7 +1209,7 @@ public class GenericObjectPool extends BaseObjectPool implements ObjectPool {
      * @see #setTestOnBorrow
      * @see #getTestOnBorrow
      */
-    private boolean _testOnBorrow = DEFAULT_TEST_ON_BORROW;
+    protected boolean _testOnBorrow = DEFAULT_TEST_ON_BORROW;
 
     /**
      * When <tt>true</tt>, objects will be
@@ -1288,16 +1289,16 @@ public class GenericObjectPool extends BaseObjectPool implements ObjectPool {
     private long _softMinEvictableIdleTimeMillis = DEFAULT_SOFT_MIN_EVICTABLE_IDLE_TIME_MILLIS;
 
     /** My pool. */
-    private LinkedList _pool = null;
+    protected LinkedList _pool = null;
 
     /** My {@link PoolableObjectFactory}. */
-    private PoolableObjectFactory _factory = null;
+    protected PoolableObjectFactory _factory = null;
 
     /**
      * The number of objects {@link #borrowObject} borrowed
      * from the pool, but not yet returned.
      */
-    private int _numActive = 0;
+    protected int _numActive = 0;
 
     /**
      * My idle object eviction {@link TimerTask}, if any.
