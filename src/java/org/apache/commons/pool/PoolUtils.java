@@ -31,6 +31,7 @@ import java.util.TimerTask;
  * @version $Revision: 385296 $ $Date: 2006-03-12 10:28:08 -0500 (Sun, 12 Mar 2006) $
  * @since Pool 1.3
  */
+@SuppressWarnings("unchecked")
 public final class PoolUtils {
 
     /**

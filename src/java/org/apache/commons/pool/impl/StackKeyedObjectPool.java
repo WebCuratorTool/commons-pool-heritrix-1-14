@@ -40,6 +40,7 @@ import org.apache.commons.pool.KeyedPoolableObjectFactory;
  * @author Rodney Waldhoff
  * @version $Revision: 328937 $ $Date: 2005-10-27 15:23:53 -0400 (Thu, 27 Oct 2005) $ 
  */
+@SuppressWarnings("unchecked")
 public class StackKeyedObjectPool extends BaseKeyedObjectPool implements KeyedObjectPool {
     /**
      * Create a new pool using
@@ -291,9 +292,9 @@ public class StackKeyedObjectPool extends BaseKeyedObjectPool implements KeyedOb
         _totActive++;
         Integer old = (Integer)(_activeCount.get(key));
         if(null == old) { 
-            _activeCount.put(key,new Integer(1));
+            _activeCount.put(key,Integer.valueOf(1));
         } else {
-            _activeCount.put(key,new Integer(old.intValue() + 1));
+            _activeCount.put(key,Integer.valueOf(old.intValue() + 1));
         }
     }
 
@@ -305,7 +306,7 @@ public class StackKeyedObjectPool extends BaseKeyedObjectPool implements KeyedOb
         } else if(active.intValue() <= 1) {
             _activeCount.remove(key);
         } else {
-            _activeCount.put(key, new Integer(active.intValue() - 1));
+            _activeCount.put(key, Integer.valueOf(active.intValue() - 1));
         }
     }
 

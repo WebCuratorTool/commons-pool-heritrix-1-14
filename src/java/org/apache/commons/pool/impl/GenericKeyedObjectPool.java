@@ -128,6 +128,7 @@ import org.apache.commons.pool.KeyedPoolableObjectFactory;
  * @author Dirk Verbeeck
  * @version $Revision: 386116 $ $Date: 2006-03-15 12:15:58 -0500 (Wed, 15 Mar 2006) $
  */
+@SuppressWarnings("unchecked")
 public class GenericKeyedObjectPool extends BaseKeyedObjectPool implements KeyedObjectPool {
 
     //--- public constants -------------------------------------------
@@ -1244,9 +1245,9 @@ public class GenericKeyedObjectPool extends BaseKeyedObjectPool implements Keyed
         _totalActive++;
         Integer active = (Integer)(_activeMap.get(key));
         if(null == active) {
-            _activeMap.put(key,new Integer(1));
+            _activeMap.put(key,Integer.valueOf(1));
         } else {
-            _activeMap.put(key,new Integer(active.intValue() + 1));
+            _activeMap.put(key,Integer.valueOf(active.intValue() + 1));
         }
     }
 
@@ -1258,7 +1259,7 @@ public class GenericKeyedObjectPool extends BaseKeyedObjectPool implements Keyed
         } else if(active.intValue() <= 1) {
             _activeMap.remove(key);
         } else {
-            _activeMap.put(key, new Integer(active.intValue() - 1));
+            _activeMap.put(key, Integer.valueOf(active.intValue() - 1));
         }
     }
 

@@ -33,6 +33,7 @@ import org.apache.commons.pool.PoolableObjectFactory;
  * @author Rodney Waldhoff
  * @version $Revision: 383290 $ $Date: 2006-03-05 02:00:15 -0500 (Sun, 05 Mar 2006) $
  */
+@SuppressWarnings("unchecked")
 public class SoftReferenceObjectPool extends BaseObjectPool implements ObjectPool {
     public SoftReferenceObjectPool() {
         _pool = new ArrayList();

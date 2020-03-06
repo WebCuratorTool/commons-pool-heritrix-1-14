@@ -40,6 +40,7 @@ import org.apache.commons.pool.PoolableObjectFactory;
  * @author Dirk Verbeeck
  * @version $Revision: 383290 $ $Date: 2006-03-05 02:00:15 -0500 (Sun, 05 Mar 2006) $
  */
+@SuppressWarnings("unchecked")
 public class StackObjectPool extends BaseObjectPool implements ObjectPool {
     /**
      * Create a new pool using
